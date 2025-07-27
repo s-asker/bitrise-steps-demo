@@ -1,0 +1,44 @@
+title: Parse Changelog
+summary: Parses a CHANGELOG.md file and extracts the changes for the current build date.
+description: |
+  This step reads a CHANGELOG.md file and extracts the most recent changes based on the build's trigger timestamp.
+
+  The step outputs the parsed changelog content as an environment variable called `CHANGELOG`.
+website: https://github.com/your-username/parse-changelog-step
+source_code_url: https://github.com/your-username/parse-changelog-step
+support_url: https://github.com/your-username/parse-changelog-step/issues
+host_os_tags:
+  - osx-10.10
+  - ubuntu-16.04
+
+type_tags:
+  - utility
+
+is_requires_admin_user: false
+is_always_run: false
+is_skippable: false
+run_if: ""
+
+deps:
+  brew:
+  - name: awk
+  apt_get:
+  - name: gawk
+
+inputs:
+  - changelog_file: CHANGELOG.md
+    opts:
+      title: Changelog File Path
+      summary: The path to the CHANGELOG.md file.
+      description: The path to the CHANGELOG.md file, relative to the root of the repository.
+      is_required: true
+
+outputs:
+  - CHANGELOG:
+    opts:
+      title: Parsed Changelog
+      summary: The parsed changelog content.
+      description: The parsed changelog content for the current build date.
+
+run:
+  file: step.sh
