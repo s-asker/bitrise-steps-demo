@@ -1,0 +1,65 @@
+title: Send Teams Notification
+summary: Sends a build notification to a Microsoft Teams channel.
+description: |
+  This step sends a build notification to a specified Microsoft Teams channel using a webhook URL.
+
+  The notification includes information about the build status, branch, and the changelog.
+website: https://github.com/your-username/send-teams-notification-step
+source_code_url: https://github.com/your-username/send-teams-notification-step
+support_url: https://github.com/your-username/send-teams-notification-step/issues
+host_os_tags:
+  - osx-10.10
+  - ubuntu-16.04
+
+type_tags:
+  - notification
+
+is_requires_admin_user: false
+is_always_run: true
+is_skippable: false
+run_if: ""
+
+inputs:
+  - teams_webhook_url:
+    opts:
+      title: Teams Webhook URL
+      summary: The webhook URL for the Teams channel.
+      description: The webhook URL for the Teams channel.
+      is_required: true
+      is_sensitive: true
+  - app_name:
+    opts:
+      title: App Name
+      summary: The name of the application.
+      description: The name of the application.
+      is_required: true
+  - app_logo_url:
+    opts:
+      title: App Logo URL
+      summary: The URL of the app logo.
+      description: The URL of the app logo.
+      is_required: false
+  - notification_icon_url:
+    opts:
+      title: Notification Icon URL
+      summary: The URL of the notification icon.
+      description: The URL of the notification icon.
+      is_required: false
+  - notification_environment_url:
+    opts:
+      title: Notification Environment URL
+      summary: The URL of the environment.
+      description: The URL of the environment.
+      is_required: false
+  - changelog_path:
+    opts:
+      title: Changelog Path
+      summary: The path to the changelog file.
+      description: The path to the changelog file.
+      is_required: false
+  - changelog:
+    opts:
+      title: Changelog
+      summary: The changelog content.
+      description: The changelog content.
+      is_required: false
